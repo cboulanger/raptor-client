@@ -34,6 +34,17 @@ describe('raptor#http', function () {
     client.send('test-notificaiton', ['Hello world!']);
   });
 
+  it('accepts 0 as result', function (done) {
+    server.method('return-zero', function (req, cb) {
+      cb(null, 0);
+    });
+    client.send('return-zero', function (err, res) {
+      assert.ifError(err);
+      assert.equal(res, 0);
+      done();
+    });
+  });
+
   after(function (done) {
     transport.close(function () {
       client = undefined;
