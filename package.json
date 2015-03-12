@@ -1,0 +1,19 @@
+{
+  "name": "raptor-client",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Linus Unnebäck <linus@folkdatorn.se>",
+  "main": "index.js",
+  "browser": "browser.js",
+  "devDependencies": {
+    "mocha": "^2.2.1",
+    "raptor-rpc": "^0.2.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/LinusU/raptor-client.git"
+  }
+}
