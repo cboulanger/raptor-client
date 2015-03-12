@@ -1,7 +1,7 @@
 
 # Raptor RPC Client
 
-An transport-agnostic RPC client that follows the JSON-RPC 2.0 spec. Works in
+A transport-agnostic RPC client that follows the JSON-RPC 2.0 spec. Works in
 the browser and on the server.
 
 ## Installation
