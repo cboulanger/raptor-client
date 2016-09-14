@@ -14,30 +14,30 @@ npm install --save raptor-client
 
 *AJAX*
 ```javascript
-var raptor = require('raptor-client');
-var client = raptor('http://localhost/api');
+var raptor = require('raptor-client')
+var client = raptor('http://localhost/api')
 
 client.send('add', [1, 2], function (err, res) {
-  if (err) { throw err; }
+  if (err) throw err
 
-  console.log('1 + 2 =', res);
-});
+  console.log('1 + 2 =', res)
+})
 ```
 
 *Web Sockets*
 ```javascript
-var raptor = require('raptor-client');
-var client = raptor('ws://localhost');
+var raptor = require('raptor-client')
+var client = raptor('ws://localhost')
 
 client.send('add', [1, 2], function (err, res) {
-  if (err) { throw err; }
+  if (err) throw err
 
-  console.log('1 + 2 =', res);
-});
+  console.log('1 + 2 =', res)
+})
 
 client.on('notification', function (msg) {
   // The server wants something!
-});
+})
 ```
 
 ## API

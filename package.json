@@ -7,10 +7,11 @@
   "browser": "browser.js",
   "devDependencies": {
     "mocha": "^2.2.1",
-    "raptor-rpc": "^0.2.1"
+    "raptor-rpc": "^0.2.1",
+    "standard": "^8.0.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "standard && mocha"
   },
   "repository": {
     "type": "git",
