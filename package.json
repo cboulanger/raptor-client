@@ -10,7 +10,7 @@
     "test": "standard && mocha"
   },
   "devDependencies": {
-    "mocha": "^2.2.1",
+    "mocha": "^3.0.2",
     "raptor-rpc": "^0.2.1",
     "standard": "^8.0.0"
   }
