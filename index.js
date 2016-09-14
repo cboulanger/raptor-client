@@ -6,9 +6,8 @@ function glue (url) {
 
   switch (info.protocol) {
     case 'http:':
+    case 'https:':
       return require('./lib/glue-http')(url)
-    // case 'https:':
-    //   return require('./lib/glue-https')(url);
     // case 'tcp:':
     //   return require('./lib/glue-net')(url);
     // case 'udp:':
