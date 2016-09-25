@@ -53,15 +53,20 @@ Supported protocols on Node.js: `http`, `https`
 
 The server has sent a notification to us.
 
-### `Client#send(method[, params][, callback])`
+### `Client#send(method[, params]) => Promise<any>`
 
-Send a request to the server. If `callback` isn't specified the request is sent
-as a notification and the server is not expected to respond.
+Send a request to the server. Returns a promise of the result from the server.
 
-`callback` will be called with `(err, res)` when the server answers.
- - `err`: Error as returned from server. `.rpcCode` and `.rpcData` is populated
-   from the server response.
- - `res`: Result as returned from the server.
+If an error response is returned from the sever, the promise will reject with an
+error that has `.rpcCode` and `.rpcData` populated from the response.
+
+### `Client#notify(method[, params]) => Promise<void>`
+
+Send a notification to the server. Returns a promise that will resolve when the
+notification has been sent to server.
+
+The promise will only reject if there is a network problem, since a server
+cannot respond to a notification.
 
 ## License
 

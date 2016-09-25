@@ -11,7 +11,11 @@
   },
   "devDependencies": {
     "mocha": "^3.0.2",
-    "raptor-rpc": "^0.2.1",
-    "standard": "^8.0.0"
+    "raptor-rpc": "^0.4.5",
+    "standard": "^8.1.0",
+    "ws": "^1.1.1"
+  },
+  "dependencies": {
+    "debug": "^2.2.0"
   }
 }

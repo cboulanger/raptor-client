@@ -1,20 +1,35 @@
-var url = require('url')
-var urlParse = url.parse
+var urlParse = require('url').parse
 
-function glue (url) {
+var glueHttp = require('./lib/glue-http')
+var glueWebSocket = require('./lib/glue-websocket')
+
+var webSocketErrorText = [
+  'To use raptor-client with a WebSocket host, a WebSocket implementation needs to be provided. Example:',
+  '',
+  'const raptor = require(\'raptor-client\')',
+  'const WebSocket = require(\'ws\')',
+  '',
+  'const client = raptor(\'ws://localhost\', { WebSocket })',
+  ''
+].join('\n')
+
+function createClient (url, options) {
   var info = urlParse(url)
 
   switch (info.protocol) {
     case 'http:':
     case 'https:':
-      return require('./lib/glue-http')(url)
-    // case 'tcp:':
-    //   return require('./lib/glue-net')(url);
-    // case 'udp:':
-    //   return require('./lib/glue-dgram')(url);
+      return glueHttp(url)
+    case 'ws:':
+    case 'wss:':
+      if (!options || !options.WebSocket) {
+        throw new Error(webSocketErrorText)
+      }
+
+      return glueWebSocket(url, options.WebSocket)
     default:
       throw new Error('Unknown protocol: ' + info.protocol)
   }
 }
 
-module.exports = glue
+module.exports = createClient
