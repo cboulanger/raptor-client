@@ -1,10 +1,9 @@
-var url = require('url')
-var urlParse = url.parse
+var urlParse = require('url').parse
 
 var glueAjax = require('./lib/glue-ajax')
 var glueWebSocket = require('./lib/glue-websocket')
 
-function glue (url) {
+function createClient (url) {
   var info = urlParse(url)
 
   switch (info.protocol) {
@@ -13,10 +12,10 @@ function glue (url) {
       return glueAjax(url)
     case 'ws:':
     case 'wss:':
-      return glueWebSocket(url)
+      return glueWebSocket(url, window.WebSocket)
     default:
       throw new Error('Unknown protocol: ' + info.protocol)
   }
 }
 
-module.exports = glue
+module.exports = createClient
