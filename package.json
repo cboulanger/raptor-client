@@ -17,5 +17,8 @@
   },
   "dependencies": {
     "debug": "^2.2.0"
+  },
+  "engines": {
+    "node": ">= 0.12"
   }
 }
