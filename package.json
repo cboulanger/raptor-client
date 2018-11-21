@@ -15,7 +15,7 @@
     "raptor-rpc": "^0.4.5",
     "standard": "^8.2.0",
     "ws": "^1.1.1",
-    "webpack": "^3.10.0"    
+    "webpack": "^3.10.0"
   },
   "dependencies": {
     "debug": "^2.2.0"
